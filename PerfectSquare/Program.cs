@@ -6,7 +6,25 @@ namespace PerfectSquare
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Accum("asdQsad"));
+            Console.WriteLine(Maskify("64607935616"));
+        }
+
+        public static string Maskify(string cc)
+        {
+            //Your task is to write a function maskify,
+            //which changes all but the last four characters into '#'.
+            //Kata.Maskify("64607935616");  should return "#######5616"
+            string answer="";
+            for (int i = cc.Length - 1; i >= 0; i--)
+            {
+                if ((cc.Length - 1 - i) < 4)
+                {
+                    answer = cc[i] + answer;
+                    continue;
+                }
+                answer = "#" + answer;
+            }
+            return answer;
         }
 
 
