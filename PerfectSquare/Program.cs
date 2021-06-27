@@ -6,12 +6,37 @@ namespace PerfectSquare
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(SquareDigits(0));
+            Console.WriteLine(Accum("asdQsad"));
         }
+
+
+        public static String Accum(string s)
+        {
+            //This time no story, no theory. The examples below show
+            //you how to write function accum:
+            //accum("abcd") -> "A-Bb-Ccc-Dddd"
+            //accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+            string result="";
+            for (int i=0; i<s.Length; i++)            
+            {
+                result += Char.ToUpper(s[i]);
+                for (int j = 0; j < i; j++)
+                {
+                    result += Char.ToLower(s[i]);
+                }
+                if (i == (s.Length - 1))
+                {
+                    break;
+                } 
+                result += '-';
+            }
+            return result;
+        }
+
 
         public static bool IsTriangle(int a, int b, int c)
         {
-            //mplement a method that accepts 3 integer values a, b, c.
+            //Implement a method that accepts 3 integer values a, b, c.
             //The method should return true if a triangle can be
             //built with the sides of given length and false in any other case.
 
