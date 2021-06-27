@@ -9,6 +9,21 @@ namespace PerfectSquare
             Console.WriteLine(Maskify("64607935616"));
         }
 
+        public static int GetVowelCount(string str)
+        {
+            //Return the number(count) of vowels in the given string.
+            //We will consider a, e, i, o, u as vowels for this Kata(but not y).
+            int vowelCount = 0;
+
+            foreach (char buf in str)
+            {
+                if (buf == 'a' || buf == 'e' || buf == 'i' || buf == 'o' || buf == 'u')
+                    vowelCount++;
+            }
+
+            return vowelCount;
+        }
+
         public static string Maskify(string cc)
         {
             //Your task is to write a function maskify,
