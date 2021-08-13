@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PerfectSquare
 {
@@ -124,6 +125,55 @@ namespace PerfectSquare
                 return false;
             }
             
+        }
+        public static int[] ArrayDiff(int[] a, int[] b)
+        {
+            //Your goal in this kata is to implement a difference function,
+            //which subtracts one list from another and returns the result.
+            //It should remove all values from list a,            
+            //which are present in list b keeping their order.
+            List<int> c = new List<int>();
+            bool presence = false;
+            for (int i=0; i < a.Length; i++)
+            {
+                for (int j = 0; j < b.Length; j++)
+                {
+                    if (a[i] == b[j])
+                    {
+                        presence = true;
+                        break;
+                    }
+                }
+                if (!presence) c.Add(a[i]);
+                else presence = false;                
+            }
+            return c.ToArray();
+        }
+
+        public static bool IsPrime(int n)
+        {
+            //Define a function that takes one integer argument and
+            //returns logical value true or false depending on
+            //if the integer is a prime.
+            //Per Wikipedia, a prime number(or a prime) is a natural number
+            //greater than 1 that has no positive divisors other than 1 and itself.
+            bool result = true;
+            if (n > 1)
+            {
+                for (int i = 2; i < n; i++)
+                {
+                    if (n % i == 0)
+                    {
+                        result = false;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                result = false;
+            }
+            return result;
         }
     }
 }
